@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <form class="form" method="post" enctype="multipart/form-data" name="constructor">
+        <label class="label__file" >
+            <input class="form__file" type="file" name="img" required>
+            Загрузить картинку
+        </label>
+        <input class="form__title" type="text" name="title" maxlength="20" placeholder="Заголовок"  required>
+        <input class="form__link" type="text" name="link" placeholder="Ссылка" required >
+        <textarea class="form__desc" name="desc" maxlength="250"  placeholder="Описание" required></textarea>
+        <button class="btn form__btn" type="submit">Создать</button>
+    </form>
+
+    <div class="container">
+       
+        
+    </div>
+    <button class="btn btn__next"> Смотреть еще</button>
+    
+    <script src="./js/main.js" type="module"></script>
+</body>
+</html>
