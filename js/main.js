@@ -41,7 +41,7 @@ form.addEventListener('submit', (evt) => {
         alert('введите руские буквы')
         return false
     }
-    if (dataArray.length < 6) {
+    if (dataArray.length <= 10) {
         renderCard(dataArray, 0)
     } else {
         console.log('5');
@@ -54,7 +54,7 @@ form.addEventListener('submit', (evt) => {
 })
 
 nextBtn.addEventListener('click', () => {
-    renderCard(dataArray, 5)
+    renderCard(dataArray, 10)
     nextBtn.style.display = 'none';
 })
 

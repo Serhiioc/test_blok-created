@@ -155,6 +155,7 @@ img {
 .btn__next {
     order: 1;
     grid-column: 2/4;
+    margin: 0 auto;
     display: none;
 }
 
