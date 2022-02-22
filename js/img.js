@@ -2,14 +2,26 @@
 export const formFile = document.querySelector('.form__file');
 
 
-export const createImg = (url, imgParent, className) => {
+export let imageUrl = '';
+
+const createImg = (url, imgParent) => {
     const img = document.createElement('img');
-    if (className) {
-        img.classList.add(className)
-    }
     img.alt = 'hello';
     img.src = url;
     imgParent.insertAdjacentElement('afterBegin', img);
 }
 
+export const renderImg = (parrent) => {
+    const file = formFile.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+        createImg(reader.result, parrent);
+        imageUrl = reader.result;
+        formFile.disabled = 'true';
+    } 
+    
+
+}
 

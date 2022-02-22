@@ -1,19 +1,17 @@
 
 const container = document.querySelector('.container');
 
-const createCard = (elem, data) => {
+const createCard = ( data) => {
     const {img, title, desc, link} = data;
-    const card = document.createElement('a');
-    card.classList.add('card', 'card--preload');
-    card.href = `${link}`;
-    const innerCard = `
-            <img class="card__img" src="${img}" alt="${title}">
-            <h2 class="card__title">${title}</h2>
-            <p class="card__desc">${desc}</p>
-    `
-    card.innerHTML = innerCard
+    const card = `
+             <a href="${link}" class="card card--preload">
+             <img class="card__img" src="${img}" alt="${title}">
+             <h2 class="card__title">${title}</h2>
+             <p class="card__desc">${desc}</p>
+             </a>
 
-   elem.appendChild(card)
+    `
+    return card
 }
 
 
@@ -22,7 +20,7 @@ const createCard = (elem, data) => {
 const renderCard = (arr, index) => {
     container.innerHTML = "";
     for (let i = index; i < arr.length; i++) {
-            createCard(container, arr[i])
+            container.innerHTML += createCard(arr[i])
         
     }
 }

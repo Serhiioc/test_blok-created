@@ -13,15 +13,23 @@
             <input class="form__file" type="file" name="img" required>
             Загрузить картинку
         </label>
-        <input class="form__title" type="text" name="title" maxlength="20" placeholder="Заголовок"  required>
-        <input class="form__link" type="text" name="link" placeholder="Ссылка" required >
-        <textarea class="form__desc" name="desc" maxlength="250"  placeholder="Описание" required></textarea>
+        <label for="title" class="label__title">
+            <input class="form__title" type="text" name="title" maxlength="20" placeholder="Заголовок"  required>
+
+        </label>
+        <label for="link" class="label__link">
+            <input class="form__link" type="text" name="link" placeholder="Ссылка" required >
+
+        </label>
+        <label for="desc" class="label__desc">
+            <textarea class="form__desc" name="desc" maxlength="250"  placeholder="Описание" required></textarea>
+
+        </label>
         <button class="btn form__btn" type="submit">Создать</button>
     </form>
 
     <div class="container">
        
-        
     </div>
     <button class="btn btn__next"> Смотреть еще</button>
     
