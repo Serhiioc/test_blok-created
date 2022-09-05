@@ -1,45 +1,44 @@
-const validateStr = ' 1234567890абвгґдеёэжзыиійклмнопрстуфхцчшщъьюяАБВГҐДЕЁЭЖЗЫИІЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯ'
+const validateStr = '1234567890абвгґдежзиійклмнопрстуфхцчшщьюяАБВГҐДЕЖЗИІЙКЛМНОПРСТУФХЦЧШЩЬЮЯ'.split('');
+const validateLink = [ '.'];
 
-const checkItemToValidate = (value) => {
-   const validateArr = validateStr.split('');
+const checkItemToValidate = (value, validateArr) => {
    let valid;
    for (let i = 0; i < value.length; i++) {
      valid = validateArr.includes(value.trim()[i]) 
-    if (valid === false) break
+    if ( value === 'data.title' && valid === false ||  value === 'data.desc' && valid === false ) break
+      else if (valid === true) break
    }
    return valid;
 }
 
-const viewErrorMassege = (data, arr) => {
-   const titleValid = checkItemToValidate(data.title);
-   const descValid = checkItemToValidate(data.desc);
-   switch (titleValid) {
-      case false:
-         const titleError = document.querySelector('.label__title');
-         titleError.append('Введіть кирилицю')
-         break;
-   
-      default:
-         break;
+const errorMessage = (name, messageBlock, validateArr) => {
+   const message = document.querySelector(messageBlock);
+   if (!checkItemToValidate(name, validateArr)) {
+      if (validateArr === validateLink) {
+         message.textContent = 'Введіть посилання';
+      } else {
+         message.textContent = 'Введіть кирилицю';
+      
+      }
+      return false
+   } else {
+      message.textContent = '';
+      return true
    }
+}
 
-   switch (descValid) {
-      case false:
-         const descError = document.querySelector('.label__desc');
-         descError.append('Введіть кирилицю')
-         break;
-   
-      default:
-         break;
-   }
+const viewErrorMessage = (data) => {
+   const titleValid = errorMessage(data.title, '.error__title', validateStr);
+   const descValid = errorMessage(data.desc, '.error__desc', validateStr);
+   const linkValid = errorMessage(data.link, '.error__link', validateLink);
 
-   if (titleValid && descValid) {
-      arr.push(data);
+   if (titleValid && descValid && linkValid) {
       return true
    } else {
       return false
    }
+  
 
 }
 
-export default viewErrorMassege;
+export default viewErrorMessage;

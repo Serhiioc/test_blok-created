@@ -3,7 +3,7 @@ import { imageUrl } from './img.js';
 
 export const data = {};
 
-const getItemValue = (data, form) => {
+const getItemValue = (form) => {
     for (let item of form) {
         data[item.name] = item.value
     }
@@ -11,11 +11,9 @@ const getItemValue = (data, form) => {
 }
 
 const createDataObj = (form) => {
-    getItemValue(data, form) 
+    getItemValue(form) 
     data.img = imageUrl;
-
     return data;
-
 }
 
 

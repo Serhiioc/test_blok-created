@@ -10,28 +10,28 @@
 <body>
     <form class="form" method="post" enctype="multipart/form-data" name="constructor">
         <label class="label__file" >
-            <input class="form__file" type="file" name="img" required>
-            Загрузить картинку
+            <input class="form__file" type="file" name="img" required accept="image/*">
+            Завантижити картинку
         </label>
         <label for="title" class="label__title">
             <input class="form__title" type="text" name="title" maxlength="20" placeholder="Заголовок"  required>
-
+            <span class="error__title"></span>
         </label>
         <label for="link" class="label__link">
-            <input class="form__link" type="text" name="link" placeholder="Ссылка" required >
-
+            <input class="form__link" type="text" name="link" placeholder="Посилання" required >
+            <span class="error__link"></span>
         </label>
         <label for="desc" class="label__desc">
-            <textarea class="form__desc" name="desc" maxlength="250"  placeholder="Описание" required></textarea>
-
+            <textarea class="form__desc" name="desc" maxlength="250"  placeholder="Опис" required></textarea>
+            <span class="error__desc"></span>
         </label>
-        <button class="btn form__btn" type="submit">Создать</button>
+        <input class="btn form__btn" type="submit" value="Створити">
     </form>
 
     <div class="container">
        
     </div>
-    <button class="btn btn__next"> Смотреть еще</button>
+    <button class="btn btn__next">Завантажити більше</button>
     
     <script src="./js/main.js" type="module"></script>
 </body>

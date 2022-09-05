@@ -1,14 +1,15 @@
 
 import {renderImg, formFile} from './img.js';
 import createDataObj, { data } from './form-data.js';
-import viewErrorMassege from './validate.js'
-import renderCard from './render-card.js';
+import viewErrorMessage from './validate.js'
+import {renderCard, renderCardList} from './render-card.js';
 
 const form = document.querySelector('.form');
 const imgPrew = document.querySelector('.label__file');
 const nextBtn = document.querySelector('.btn__next');
 
 const dataArray = [];
+let counter = 6;
 
 formFile.addEventListener('change', () => {
     renderImg(imgPrew)
@@ -24,21 +25,24 @@ const formClean = () => {
 form.addEventListener('submit', (evt) => {
     evt.preventDefault()
     createDataObj(form);
-    if (viewErrorMassege(data, dataArray)) {
+    if (viewErrorMessage(data)) {
+        dataArray.unshift({...data})
         formClean()
     } else {
         return false
     }
-    if (dataArray.length <= 10) {
+    if (dataArray.length <= counter) {
         renderCard(dataArray, 0)
     } else {
         nextBtn.style.display = 'block';
+
     }
 })
 
 nextBtn.addEventListener('click', () => {
-    renderCard(dataArray, 10)
+    renderCardList(dataArray, counter)
     nextBtn.style.display = 'none';
+    counter += 6;
 })
 
 
