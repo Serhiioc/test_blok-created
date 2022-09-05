@@ -9,7 +9,7 @@ const imgPrew = document.querySelector('.label__file');
 const nextBtn = document.querySelector('.btn__next');
 
 const dataArray = [];
-let counter = 6;
+let counter = 9;
 
 formFile.addEventListener('change', () => {
     renderImg(imgPrew)
@@ -42,7 +42,7 @@ form.addEventListener('submit', (evt) => {
 nextBtn.addEventListener('click', () => {
     renderCardList(dataArray, counter)
     nextBtn.style.display = 'none';
-    counter += 6;
+    counter += 9;
 })
 
 
