@@ -2,7 +2,7 @@
 import {renderImg, formFile} from './img.js';
 import createDataObj, { data } from './form-data.js';
 import viewErrorMessage from './validate.js'
-import {renderCard, renderCardList} from './render-card.js';
+import {renderCard} from './render-card.js';
 
 const form = document.querySelector('.form');
 const imgPrew = document.querySelector('.label__file');
@@ -40,9 +40,21 @@ form.addEventListener('submit', (evt) => {
 })
 
 nextBtn.addEventListener('click', () => {
-    renderCardList(dataArray, counter)
-    nextBtn.style.display = 'none';
+    let elem = 0;
+    console.log(elem);
+    for (let i = dataArray.length - (counter+1); i >= 0; i--) {
+        if (elem < 9 ) {
+            elem ++;
+            renderCard(dataArray, i)
+        }
+    }
+    if (dataArray.length <= (counter + 9)) {
+        nextBtn.style.display = 'none';
+    }
+    
+    console.log(counter);
     counter += 9;
+    
 })
 
 

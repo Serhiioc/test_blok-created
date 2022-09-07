@@ -10,8 +10,9 @@
 <body>
     <form class="form" method="post" enctype="multipart/form-data" name="constructor">
         <label class="label__file" >
-            <input class="form__file" type="file" name="img" required accept="image/*">
+            <input class="form__file" type="file" name="img" accept="image/*" value="0">
             Завантижити картинку
+            <span class="error__img"></span>
         </label>
         <label for="title" class="label__title">
             <input class="form__title" type="text" name="title" maxlength="20" placeholder="Заголовок"  required>

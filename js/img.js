@@ -8,7 +8,6 @@ const createImg = (url, imgParent) => {
     const img = document.createElement('img');
     img.alt = 'hello';
     img.src = url;
-    console.log(img);
     imgParent.insertAdjacentElement('afterBegin', img);
 }
 
