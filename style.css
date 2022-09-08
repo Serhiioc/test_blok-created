@@ -83,6 +83,10 @@ img {
 
 }
 
+.img__file {
+    display: none;
+}
+
 .form__file {
     opacity: 0;
     visibility: hidden;

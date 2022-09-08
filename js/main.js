@@ -1,30 +1,32 @@
 
 import {renderImg, formFile} from './img.js';
-import createDataObj, { data } from './form-data.js';
+import createDataObj from './form-data.js';
 import viewErrorMessage from './validate.js'
 import {renderCard} from './render-card.js';
 
 const form = document.querySelector('.form');
-const imgPrew = document.querySelector('.label__file');
 const nextBtn = document.querySelector('.btn__next');
 
 const dataArray = [];
 let counter = 9;
 
-formFile.addEventListener('change', () => {
-    renderImg(imgPrew)
+formFile.addEventListener('change', (e) => {
+    renderImg()
+    console.log(e);
+    console.log(formFile);
     
 })
 
 const formClean = () => {
-    imgPrew.querySelector('img').remove();
+    document.querySelector('.img__file').style.display = 'none';
     formFile.removeAttribute('disabled');
     form.reset();
 }
 
 form.addEventListener('submit', (evt) => {
     evt.preventDefault()
-    createDataObj(form);
+    const data = createDataObj(form);
+
     if (viewErrorMessage(data)) {
         dataArray.unshift({...data})
         formClean()
