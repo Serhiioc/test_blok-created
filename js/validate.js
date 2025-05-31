@@ -1,4 +1,4 @@
-const validateStr = '1234567890абвгґдежзиійклмнопрстуфхцчшщьюяАБВГҐДЕЖЗИІЙКЛМНОПРСТУФХЦЧШЩЬЮЯ'.split('');
+const validateStr = '1234567890абвгґдежзиійклмнопрстуфхцчшщьюяАБВГҐДЕЖЗИІЙКЛМНОПРСТУФХЦЧШЩЬЮЯ.,'.split('');
 const validateLink = ['.'];
 const validateImg = document.querySelector('.form__file');
 
@@ -57,7 +57,7 @@ const errorMessage = (validFunc, messageBlock, message) => {
 const viewErrorMessage = (data) => {
    const titleValid = errorMessage(checkItemToValidate(data.title), '.error__title', 'Введіть кирилицю');
    const descValid = errorMessage(checkItemToValidate(data.desc), '.error__desc', 'Введіть кирилицю');
-   const linkValid = errorMessage(checkLinkToValidate(data.link), '.error__link', 'Введіть посилання');
+   const linkValid = errorMessage(checkLinkToValidate(data.link), '.error__link', 'Введіть посилання в форматі https');
    const imgValid = errorMessage(checkImgToValidate(validateImg.value), '.error__img', 'Добавте картинку');
    return titleValid && descValid && linkValid && imgValid
 
